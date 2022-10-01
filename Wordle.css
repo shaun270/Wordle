@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
-    font-family: nyt-karnakcondensed, sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
 }
 
 .header{
@@ -13,6 +13,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 0.1px solid var(--box-border);
+    font-weight: 800;
 }
 
 .boxes-container{
@@ -30,7 +31,7 @@
     width: 45px;
     height: 45px;
     border: 2px solid var(--box-border);
-    margin: 5px;
+    margin: 3px;
 }
 
 .keyboard{
@@ -45,7 +46,7 @@
 }
 
 .key{
-    width: 20px;
+    width: 25px;
     height: 60px;
     background-color: var(--key-color);
     margin: 4px;
@@ -57,6 +58,8 @@
     padding-right: 10px;
     color:white;
     cursor: pointer;
+    font-weight: 600;
+    font-size: small;
 }
 
 #enter{
