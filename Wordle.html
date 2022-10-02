@@ -8,15 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600;700;800&display=swap" rel="stylesheet">
-
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="Wordle.css">
     <link rel="stylesheet" href="var.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Wordle by Da Bombzz</title>
 </head>
 
 <body>
     <header class="header">Hordle</header>
-
+    <!-- not enough letters prompt -->
+    <div class="error">Not enough letters</div>
     <!-- input boxes -->
     <div class="boxes-container">
         <div class="boxes-row">
@@ -89,7 +92,7 @@
             <div class="key">L</div>
         </div>
         <div class="key-row">
-            <div class="key" id="enter">ENTER</div>
+            <div class="key" id="enter">Enter</div>
             <div class="key">Z</div>
             <div class="key">X</div>
             <div class="key">C</div>
@@ -97,7 +100,7 @@
             <div class="key">B</div>
             <div class="key">N</div>
             <div class="key">M</div>
-            <div class="key" id="del">DEL</div>
+            <div class="key" id="del">Del</div>
         </div>
     </div>
     <script src="app.js"></script>
