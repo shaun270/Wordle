@@ -27,11 +27,25 @@
     display: flex;
 }
 
+.boxes-row-shake{
+    animation: shake 0.75s;
+}
+
 .boxes{
     width: 45px;
     height: 45px;
     border: 2px solid var(--box-border);
     margin: 3px;
+    color:white;
+    font-size: 30px;
+    position: relative;
+    text-align: center;
+    line-height: 45px;
+}
+
+.boxes-anim{
+    animation: boxAni 0.2s ease-out;
+    border-color: var(--box-border-filled);
 }
 
 .keyboard{
@@ -52,7 +66,6 @@
     margin: 4px;
     border-radius: 5px;
     text-align: center;
-    vertical-align: center;
     line-height: 60px;
     padding-left: 10px;
     padding-right: 10px;
@@ -68,4 +81,31 @@
 
 #del{
     width: 45px;
+}
+
+@keyframes boxAni{
+    50% {
+        padding: 1px;
+        margin: 1px;
+        height: 47px;
+        width: 47px;
+    }
+}
+
+@keyframes shake{
+    10%,90% {
+        transform: translateX(2px);
+    }
+    20%,80%{
+        transform: translateX(-2px);
+    }
+    30%,70%{
+        transform: translateX(2px);
+    }
+    40%,60%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translateX(2px);
+    }
 }
