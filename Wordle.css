@@ -136,13 +136,25 @@
 }
 
 .error{
-    display:fixed;
-    height: 30px;
+    opacity: 0%;
+    top: 25%;
+    position: absolute;
+    height: 37px;
     width: 170px;
     background-color: white;
     text-align: center;
-    line-height: 30px;
+    line-height: 36px;
     border-radius: 3px;
     margin: 0 auto;
     margin-top: 20px;
+    left: 43%;
+    z-index: 1;
+    transition: all 0.5s;
+}
+
+.error-show{
+    display: block;
+    opacity: 100%;
+    transition: all 0.5s;
+    z-index: 1;
 }

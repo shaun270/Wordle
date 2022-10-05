@@ -2,7 +2,8 @@ const word = "BOMBZ";
 let wordin = '';
 var j=0;
 const boxRows = document.querySelectorAll('.boxes-row');
-var boxes = boxRows[j].querySelectorAll('.boxes');
+let boxes = boxRows[j].querySelectorAll('.boxes');
+const errorBox = document.querySelector('.error');
 
 console.log(boxes); 
 const buttons = document.querySelectorAll('.key');
@@ -43,18 +44,23 @@ function printing(letter){
 
 function rotating(){
     for(var i=0;i<5;i++){
-        boxes[i].classList.add('boxes-rotate');
-        // setTimeout(()=>{
-        //     console.log(boxes[i].classList);
-        //     boxes[i].classList.add('boxes-rotate');},1000);
+        // boxes[i].classList.add('boxes-rotate');
+        console.log(i,boxes[i].classList);
+        setTimeout(()=>{
+            console.log(boxes[i].classList);
+            boxes[i].classList.add('boxes-rotate');
+        },i*1000);
     }
 }
 
 function error(){
     if(count<5){
         boxRows[j].classList.add('boxes-row-shake');
+        errorBox.classList.add('error-show');
         setTimeout(()=>{
-            boxRows[j].classList.remove('boxes-row-shake')} ,750);
+            boxRows[j].classList.remove('boxes-row-shake');
+            errorBox.classList.remove('error-show');
+        } ,750);
         return 0;
     }
     else return 1;
