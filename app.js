@@ -1,6 +1,6 @@
 const word = "BOMBZ";
 let wordin = '';
-var j=0;
+let j=0;
 const boxRows = document.querySelectorAll('.boxes-row');
 let boxes = boxRows[j].querySelectorAll('.boxes');
 const errorBox = document.querySelector('.error');
@@ -24,12 +24,13 @@ function printing(letter){
             err = error();
             if(err==1){
                 check();
-                keychange();
+                
                 wordin='';
                 rotating();
-                j++;
+                setTimeout(()=>{keychange();
+                console.log(120);},3000);
+                console.log('j='+j);
                 count=0;
-                boxes=boxRows[j].querySelectorAll('.boxes');
             }
         }
         else{
@@ -37,21 +38,23 @@ function printing(letter){
             boxes[count].classList.add('boxes-anim');
             count++;
             wordin += letter;
-            console.log(wordin);
+            // console.log(wordin);
         }
     }
 }
 
 function rotating(){
-    for(var i=0;i<5;i++){
-        // boxes[i].classList.add('boxes-rotate');
-        console.log(i,boxes[i].classList);
+    for(let i=0;i<6;i++){
         setTimeout(()=>{
-            console.log(boxes[i].classList);
-            boxes[i].classList.add('boxes-rotate');
-        },i*1000);
+            if(i==5) j++;
+            else{
+                boxRows[j].querySelectorAll('.boxes')[i].classList.add('boxes-rotate');
+            }
+            boxes = boxRows[j].querySelectorAll('.boxes');
+        }, i==5?i*200:i*250);
     }
 }
+
 
 function error(){
     if(count<5){
@@ -60,7 +63,7 @@ function error(){
         setTimeout(()=>{
             boxRows[j].classList.remove('boxes-row-shake');
             errorBox.classList.remove('error-show');
-        } ,750);
+        }, 750);
         return 0;
     }
     else return 1;
@@ -89,7 +92,7 @@ function keychange(letter,color){
     for(var i=0;i<buttons.length;i++){
         if(letter===buttons[i].textContent){
             buttons[i].classList.add(color);
-            console.log(buttons[i].classList);
+            // console.log(buttons[i].classList);
         }
     }
 }
@@ -98,9 +101,9 @@ buttons.forEach(
     btn => {
         btn.addEventListener('click',function(){
             const letter = btn.textContent; 
-            console.log(letter);
+            // console.log(letter);
             printing(letter);
-            console.log(count);
+            // console.log(count);
         })
     }
 )
@@ -108,7 +111,7 @@ buttons.forEach(
 // Keyboard inputs
 document.addEventListener('keypress',(event)=>{
     // console.log(event);
-    console.log(event.key);
-    console.log(count);
+    // console.log(event.key);
+    // console.log(count);
     printing(event.key);
 })
