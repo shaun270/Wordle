@@ -48,6 +48,10 @@
     border-color: var(--box-border-filled);
 }
 
+.boxes-vict{
+    animation: bounce 1s;
+}
+
 .boxes-rotate{
     animation: rotate 0.6s ease-in;
 }
@@ -67,6 +71,7 @@
     width: 25px;
     height: 60px;
     background-color: var(--key-color);
+    border: 2px;
     margin: 4px;
     border-radius: 5px;
     text-align: center;
@@ -115,24 +120,36 @@
 }
 
 @keyframes rotate {
-    100%{
-        transform: rotateX(180deg);
+    50%{
+        transform: rotateX(90deg);
     }
-}   
+    100%{
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 40%, 50%,100% {
+        transform: translateY(0);
+    } 
+    20% {
+        transform: translateY(-20px);
+    }
+}
 
 .grey{
     background-color: var(--grey-fill);
-    border: 2px solid var(--grey-fill);
+    border-color: var(--grey-fill);
 }
 
 .yellow{
     background-color: var(--yellow-fill);
-    border: 2px solid var(--yellow-fill);
+    border-color: var(--yellow-fill);
 }
 
 .green{
     background-color: var(--green-fill);
-    border: 2px solid var(--green-fill);
+    border-color: var(--green-fill);
 }
 
 .error{
