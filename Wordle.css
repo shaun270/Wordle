@@ -1,73 +1,73 @@
-*{
+* {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: Arial,'Libre Franklin', sans-serif;
 }
 
-.header{
+.header {
     cursor: default;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     color: white;
-    padding-top: 10px;
+    padding-top: 8px;
     padding-bottom: 10px;
     border-bottom: 0.1px solid var(--box-border);
     font-weight: 800;
 }
 
-.boxes-container{
-    margin-top: 20px;
+.boxes-container {
+    margin-top: 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.boxes-row{
+.boxes-row {
     display: flex;
 }
 
-.boxes-row-shake{
+.boxes-row-shake {
     animation: shake 0.75s;
 }
 
-.boxes{
+.boxes {
     width: 45px;
     height: 45px;
     border: 2px solid var(--box-border);
     margin: 3px;
-    color:white;
+    color: white;
     font-size: 30px;
     position: relative;
     text-align: center;
     line-height: 45px;
 }
 
-.boxes-anim{
+.boxes-anim {
     animation: boxAni 0.11s ease-out;
     border-color: var(--box-border-filled);
 }
 
-.boxes-vict{
+.boxes-vict {
     animation: bounce 1s;
 }
 
-.boxes-rotate{
+.boxes-rotate {
     animation: rotate 0.6s ease-in;
 }
 
-.keyboard{
-    margin-top: 20px;
-    display:flex;
+.keyboard {
+    margin-top: 7px;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.key-row{
-    display:flex;
+.key-row {
+    display: flex;
 }
 
-.key{
+.key {
     width: 25px;
     height: 60px;
     background-color: var(--key-color);
@@ -78,21 +78,21 @@
     line-height: 60px;
     padding-left: 10px;
     padding-right: 10px;
-    color:white;
+    color: white;
     cursor: pointer;
     font-weight: 600;
     font-size: small;
 }
 
-#enter{
+#enter {
     width: 55px;
 }
 
-#del{
+#del {
     width: 45px;
 }
 
-@keyframes boxAni{
+@keyframes boxAni {
     50% {
         padding: 1px;
         margin: 1px;
@@ -101,58 +101,73 @@
     }
 }
 
-@keyframes shake{
-    10%,90% {
+@keyframes shake {
+
+    10%,
+    90% {
         transform: translateX(2px);
     }
-    20%,80%{
+
+    20%,
+    80% {
         transform: translateX(-2px);
     }
-    30%,70%{
+
+    30%,
+    70% {
         transform: translateX(2px);
     }
-    40%,60%{
+
+    40%,
+    60% {
         transform: translateX(-2px);
     }
-    50%{
+
+    50% {
         transform: translateX(2px);
     }
 }
 
 @keyframes rotate {
-    50%{
+    50% {
         transform: rotateX(90deg);
     }
-    100%{
+
+    100% {
         transform: rotateX(0deg);
     }
 }
 
 @keyframes bounce {
-    0%, 40%, 50%,100% {
+
+    0%,
+    40%,
+    50%,
+    100% {
         transform: translateY(0);
-    } 
+    }
+
     20% {
         transform: translateY(-20px);
     }
 }
 
-.grey{
+.grey {
     background-color: var(--grey-fill);
     border-color: var(--grey-fill);
 }
 
-.yellow{
+.yellow {
     background-color: var(--yellow-fill);
     border-color: var(--yellow-fill);
 }
 
-.green{
+.green {
     background-color: var(--green-fill);
     border-color: var(--green-fill);
 }
 
-.error{
+.error {
     opacity: 0%;
     top: 10%;
     position: fixed;
@@ -169,9 +184,31 @@
     transition: all 0.5s;
 }
 
-.error-show{
+.error-show {
     display: block;
     opacity: 100%;
     transition: all 0.5s;
     z-index: 1;
+}
+
+.vict-message {
+    opacity: 0%;
+    background-color: transparent;
+}
+
+.show-vict {
+    display: block;
+    position: absolute;
+    opacity: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--green-fill);
+    color: white;
+    font-size:100px;
+    z-index: 1;
+    text-align: center;
+    padding-top: 200px;
+    transition: all 2s ease-in-out;
 }

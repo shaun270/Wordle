@@ -11,6 +11,7 @@ let stat; // status of the api request
 let data =''; 
 let requestUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/`;
 let victory=0;
+const vict = document.querySelector('.vict-message');
 
 // backend
 
@@ -45,11 +46,13 @@ async function printing(letter){
                 // console.log(data);
                 if(stat==200)
                 {
-                    // console.log(stat);
-                    // console.log(data);
                     if(word===wordin){
                         victory = 1;
-                        anim('boxes-vict');
+                        await anim('boxes-vict');
+                        var audio = new Audio("./yaySoundEffect.mp3");
+                        audio.play();
+                        vict.classList.add('show-vict');
+                        
                     }
                     else anim('boxes-rotate');
                     check();
@@ -79,7 +82,7 @@ async function printing(letter){
     }
 }
 
-function anim(animName){
+async function anim(animName){
     console.log(animName);
     for(let i=0;i<6;i++){
         setTimeout(()=>{
