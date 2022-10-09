@@ -26,8 +26,10 @@ async function makeRequest(requestUrl){
 
 async function printing(letter){
     letter = letter.toUpperCase();
+
     // handling different events
-    if(letter>='A' && letter<='Z'){
+    if(letter>='A' && letter<='Z' && victory!=1){
+        console.log(letter);
         if(letter==='DEL' || letter==='BACKSPACE' || letter==='DELETE'){
             if(count>0){count--;}
             wordin = wordin.slice(0, -1);
@@ -67,7 +69,7 @@ async function printing(letter){
                 
             }
         }
-        else{
+        else if(letter.length==1){
             boxes[count].textContent = letter;
             boxes[count].classList.add('boxes-anim');
             count++;
@@ -83,7 +85,7 @@ function anim(animName){
         setTimeout(()=>{
             if(i==5 && j!=5) j++;
             else{
-                boxRows[j].querySelectorAll('.boxes')[i].classList.add(animName);
+                boxes[i].classList.add(animName);
             }
             boxes = boxRows[j].querySelectorAll('.boxes');
         }, i==5?i*200:i*250);
@@ -152,10 +154,7 @@ buttons.forEach(
 )
 
 // Keyboard inputs
-document.addEventListener('keypress',(event)=>{
-    // console.log(event);
-    // console.log(event.key);
-    // console.log(count);
+document.addEventListener('keydown',(event)=>{
     printing(event.key);
 })
 
