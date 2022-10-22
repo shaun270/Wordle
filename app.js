@@ -1,5 +1,5 @@
 // variables
-const word = "BOMBS";
+const word =[];
 let wordin = '';
 let j=0;
 const boxRows = document.querySelectorAll('.boxes-row');
@@ -10,27 +10,21 @@ let count = 0; //count of the number of boxes
 let stat; // status of the api request
 let data =''; 
 let requestUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/`;
+const url = "https://random-word-api.herokuapp.com/word?length=5";
 let victory=0;
 const vict = document.querySelector('.vict-message');
 
-// backend
-
-async function makeRequest(requestUrl){
-    const response = await fetch(requestUrl);
-    data = await response.json();
-    stat = response.status;
-    if(!response.ok){
-        console.log('Failed to fetch :(', stat);
-    }
-    else console.log('Victory!!!!', stat);
-};
+//Fetching correct word
+window.addEventListener('DOMContentLoaded',()=>{
+    wordFetch(url);
+})
 
 async function printing(letter){
     letter = letter.toUpperCase();
 
     // handling different events
     if(letter>='A' && letter<='Z' && victory!=1){
-        console.log(letter);
+        // console.log(letter);
         if(letter==='DEL' || letter==='BACKSPACE' || letter==='DELETE'){
             if(count>0){count--;}
             wordin = wordin.slice(0, -1);
@@ -44,9 +38,9 @@ async function printing(letter){
                 // console.log(requestUrl);
                 await makeRequest(requestUrl);
                 // console.log(data);
-                if(stat==200)
+                if(stat==200 || word.join('')===wordin)
                 {
-                    if(word===wordin){
+                    if(word.join('')===wordin){
                         victory = 1;
                         await anim('boxes-vict');
                         var audio = new Audio("./yaySoundEffect.mp3");
@@ -109,7 +103,7 @@ function error(ind){
 }
 
 function check(){
-    let copy=word;
+    let copy=word.join('');
     for(var i=0;i<5;i++){
         for(var j=0;j<5;j++){
             if(copy[j]===wordin[i]){
@@ -128,10 +122,10 @@ function check(){
             keychange(boxes[i].textContent,'grey');}
         }
         // console.log("i"+i);
-        if(i==5){
-            alert("bas bhai hogaya tera chance");
-            break;
-        }
+        // if(i==5){
+        //     alert("bas bhai hogaya tera chance");
+        //     break;
+        // }
         
     }
 }
