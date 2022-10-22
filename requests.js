@@ -1,7 +1,7 @@
 const wordFetch = async (url)=>{
     const response = await fetch(url);
     data = await response.json();
-    console.log(data[0]);
+    // console.log(data[0]);
     word.push(...data[0].toUpperCase().split(''));
 }
 

@@ -77,7 +77,7 @@ async function printing(letter){
 }
 
 async function anim(animName){
-    console.log(animName);
+    // console.log(animName);
     for(let i=0;i<6;i++){
         setTimeout(()=>{
             if(i==5 && j!=5) j++;
